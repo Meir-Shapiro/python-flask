@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block mycontent %}
 <h1>{{ title }}</h1>
 <form action="" method="post">
@@ -6,17 +7,23 @@
     <p>
         {{ form.username.label }}<br>
         {{ form.username(size=30) }}
+        {% for error in form.username.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
     </p>
     <p>
         {{ form.password.label }}<br>
         {{ form.password(size=30) }}
+        {% for error in form.password.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
     </p>
     <p>
         {{ form.remember_me.label }}<br>
         {{ form.remember_me() }}
     </p>
     <p>
-        {{ form.submit() }}<br>
+        {{ form.submit() }}
     </p>
 </form>
 {% endblock %}
