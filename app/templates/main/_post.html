@@ -3,7 +3,7 @@
         <td><img src="{{ post.author.avatar(25) }}"></td>
         <td>
             <p>
-                <b>{{ post.author.username }}:</b> {{ post.body }}
+                <a href="{{ url_for('main.user', username=post.author.username) }}"> <b>{{ post.author.username }}:</b></a> {{ post.body }}
             </p>
         </td>
     </tr>
